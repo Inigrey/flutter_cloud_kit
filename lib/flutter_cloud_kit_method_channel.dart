@@ -9,7 +9,7 @@ import 'flutter_cloud_kit_platform_interface.dart';
 /// An implementation of [FlutterCloudKitPlatform] that uses method channels.
 class MethodChannelFlutterCloudKit extends FlutterCloudKitPlatform {
   @visibleForTesting
-  final methodChannel = const MethodChannel('app.fuelet.flutter_cloud_kit');
+  final methodChannel = const MethodChannel('app.inigrey.flutter_cloud_kit');
 
   @override
   Future<CloudKitAccountStatus> getAccountStatus({String? containerId}) async {
@@ -27,7 +27,7 @@ class MethodChannelFlutterCloudKit extends FlutterCloudKitPlatform {
       {String? containerId,
       required CloudKitDatabaseScope scope,
       required String recordType,
-      required Map<String, String> record,
+      required Map<String, dynamic> record,
       String? recordName}) async {
     var args = {
       'databaseScope': scope.name,

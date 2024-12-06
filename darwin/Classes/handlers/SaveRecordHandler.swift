@@ -1,10 +1,3 @@
-//
-//  SaveRecordHandler.swift
-//  flutter_cloud_kit
-//
-//  Created by Mikhail Poplavkov on 20.07.23.
-//
-
 import CloudKit
 
 #if os(iOS)
@@ -17,7 +10,7 @@ class SaveRecordHandler {
     static func handle(arguments: Dictionary<String, Any>, result: @escaping FlutterResult) -> Void {
         let database: CKDatabase;
         let recordType: String;
-        let recordValues: Dictionary<String, String>;
+        let recordValues: Dictionary<String, Any>;
         
         if let databaseOpt = getDatabaseFromArgs(arguments: arguments) {
             database = databaseOpt;

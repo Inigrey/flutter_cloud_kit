@@ -34,7 +34,7 @@ abstract class FlutterCloudKitPlatform extends PlatformInterface {
       {String? containerId,
       required CloudKitDatabaseScope scope,
       required String recordType,
-      required Map<String, String> record,
+      required Map<String, dynamic> record,
       String? recordName}) {
     throw UnimplementedError('saveRecord() has not been implemented.');
   }

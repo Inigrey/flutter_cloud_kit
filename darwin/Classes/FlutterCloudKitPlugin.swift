@@ -12,7 +12,7 @@ public class FlutterCloudKitPlugin: NSObject, FlutterPlugin {
             let messenger = registrar.messenger
         #endif
         
-        let channel = FlutterMethodChannel(name: "app.fuelet.flutter_cloud_kit", binaryMessenger: messenger)
+        let channel = FlutterMethodChannel(name: "app.inigrey.flutter_cloud_kit", binaryMessenger: messenger)
         let instance = FlutterCloudKitPlugin()
         registrar.addMethodCallDelegate(instance, channel: channel)
     }

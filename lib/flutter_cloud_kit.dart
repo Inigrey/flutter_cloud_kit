@@ -39,7 +39,7 @@ class FlutterCloudKit {
   Future<void> saveRecord(
       {required CloudKitDatabaseScope scope,
       required String recordType,
-      required Map<String, String> record,
+      required Map<String, dynamic> record,
       String? recordName}) {
     validateCloudKitIdentifier(recordType);
     record.keys.forEach(validateCloudKitIdentifier);

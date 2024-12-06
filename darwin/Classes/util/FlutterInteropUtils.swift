@@ -1,10 +1,3 @@
-//
-//  FlutterInteropUtils.swift
-//  flutter_cloud_kit
-//
-//  Created by Mikhail Poplavkov on 20.07.23.
-//
-
 #if os(iOS)
 import Flutter
 #elseif os(macOS)
@@ -45,8 +38,8 @@ func getRecordTypeFromArgs(arguments: Dictionary<String, Any>) -> String? {
     return arguments["recordType"] as? String;
 }
 
-func getRecordValuesFromArgs(arguments: Dictionary<String, Any>) -> Dictionary<String, String>? {
-    return arguments["record"] as? Dictionary<String, String>;
+func getRecordValuesFromArgs(arguments: Dictionary<String, Any>) -> Dictionary<String, Any>? {
+    return arguments["record"] as? Dictionary<String, Any>;
 }
 
 func getDatabaseFromArgs(arguments: Dictionary<String, Any>) -> CKDatabase? {
@@ -67,7 +60,7 @@ func convertCkRecordType(value: __CKRecordObjCValue) -> Any? {
     if let str = value as? NSString {
         return str as String;
     } else if let num = value as? NSNumber {
-        return num.stringValue;
+        return num.intValue;
     } else if let data = value as? NSData {
         return data.base64EncodedString();
     } else if let date = value as? NSDate {

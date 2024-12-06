@@ -1,11 +1,3 @@
-//
-//  GetRecordsByTypeHandler.swift
-//  flutter_cloud_kit
-//
-//  Created by Mikhail Poplavkov on 21.07.23.
-//
-
-
 import CloudKit
 
 #if os(iOS)

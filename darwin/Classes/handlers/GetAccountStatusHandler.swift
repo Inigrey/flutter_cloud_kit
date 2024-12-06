@@ -1,10 +1,3 @@
-//
-//  GetAccountStatusHandler.swift
-//  flutter_cloud_kit
-//
-//  Created by Mikhail Poplavkov on 18.07.23.
-//
-
 import CloudKit
 
 #if os(iOS)
