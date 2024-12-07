@@ -36,8 +36,8 @@ class SaveRecordHandler {
             if (record == nil) {
                changeRecord = CKRecord(recordType: recordType, recordID: recordId);
             }
-            changeRecord.setValuesForKeys(recordValues);
-            database.save(changeRecord) { (record, error) in
+            changeRecord!.setValuesForKeys(recordValues);
+            database.save(changeRecord!) { (record, error) in
                 if (error != nil) {
                     return result(createFlutterError(message: error!.localizedDescription));
                 }
