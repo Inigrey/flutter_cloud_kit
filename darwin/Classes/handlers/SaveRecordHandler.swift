@@ -31,19 +31,20 @@ class SaveRecordHandler {
         }
         
         let recordId = getRecordIdFromArgsOrDefault(arguments: arguments);
-        let record = CKRecord(recordType: recordType, recordID: recordId);
-        
-        // TODO: handle ObjectiveC exceptions
-        record.setValuesForKeys(recordValues);
-        
-        database.save(record) { (record, error) in
-            if (error != nil) {
-                return result(createFlutterError(message: error!.localizedDescription));
-            }
+        database.fetch(withRecordID: recordId) { (record, error) in
             if (record == nil) {
-                return result(createFlutterError(message: "Got nil while saving the record"));
+               record = CKRecord(recordType: recordType, recordID: recordId);
             }
-            return result(true);
+            record.setValuesForKeys(recordValues);
+            database.save(record) { (record, error) in
+                if (error != nil) {
+                    return result(createFlutterError(message: error!.localizedDescription));
+                }
+                if (record == nil) {
+                    return result(createFlutterError(message: "Got nil while saving the record"));
+                }
+                return result(true);
+            }
         }
     }
 }
