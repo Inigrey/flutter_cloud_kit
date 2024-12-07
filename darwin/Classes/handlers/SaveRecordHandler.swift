@@ -32,11 +32,12 @@ class SaveRecordHandler {
         
         let recordId = getRecordIdFromArgsOrDefault(arguments: arguments);
         database.fetch(withRecordID: recordId) { (record, error) in
+            var changeRecord = record;
             if (record == nil) {
-               record = CKRecord(recordType: recordType, recordID: recordId);
+               changeRecord = CKRecord(recordType: recordType, recordID: recordId);
             }
-            record.setValuesForKeys(recordValues);
-            database.save(record) { (record, error) in
+            changeRecord.setValuesForKeys(recordValues);
+            database.save(changeRecord) { (record, error) in
                 if (error != nil) {
                     return result(createFlutterError(message: error!.localizedDescription));
                 }
